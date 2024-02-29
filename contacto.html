@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="vida.html">Vida</a></li>
+                <li><a href="pensamiento.html">Pensamiento</a></li>
+                <li><a href="obras.html">Obras</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="portada">
+            <h1>Albert <span>Camus</span></h1>
+        </div>
+        <style>
+            
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        fieldset {
+            width: 30rem;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        </style>
+    </header>
+    <section>
+        <hr>
+        <h3>Contacto</h3>
+        <p>¿Quieres aportar algo a esta web? ¡Envíanos un correo!</p>
+        <fieldset>
+            <form action="" id="contactForm" onsubmit="return validateForm()">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Tu apellido">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad">
+                <label for="telefono">Teléfono</label>
+                <input type="number" id="telefono" name="telefono" placeholder="+34">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@electronico.com">
+                <label for="comentario">Comentario</label>
+                <textarea id="comentario" name="comentario" placeholder="Aceptamos cualquier aportación y sugerencia :)"></textarea>
+                <label for="check">He leído y acepto la política de privacidad</label>
+                <input type="checkbox" id="check" name="check">
+                <br>
+                <input type="submit" name="enviar" id="enviar" value="enviar">
+            </form>
+            <!-- formulario con nombre, apellidos, edad, telefono, email, comentario, check de "He leido y acepto la política de privacidad"-->
+        </fieldset>
+        <fieldset>
+            <!-- valoracion de los visitantes/comentarios/algo que se tienen que integrar en la web -->
+        </fieldset>
+    </section>
+    <footer>
+        <hr>
+        <br>
+        <p>Trabajo hecho por: <a href="https://github.com/diego2444">Diego</a>, 2023.</p>
+    </footer>
+    <script>
+        function validateForm() {
+            var edadInput = document.getElementById("edad");
+            var edad = parseInt(edadInput.value);
+
+            if (edad < 0) {
+                alert("la edad no puede ser un número negativo");
+                edadInput.focus();
+                return false;
+            } else if (edad < 18) {
+                alert("tienes que ser mayor de edad para comentar, perdona!");
+                edadInput.focus();
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- opcion para cambiar a modo claro y modo oscuro(?) -->
+<!-- pensar como meter imagenes -->
