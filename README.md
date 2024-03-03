@@ -1,157 +1,81 @@
-# B2 - Pàgina Web Responsive
+# B2 - Interactivitat a la Web Responsive
 ## Pràctica de Llenguatge de Marques
 
-**Tasca:** Dissenyar i desenvolupar un lloc web *responsive* utilitzant HTML i CSS.
+**Tasca:** Incorporar interactivitat a la Web utilitzant JavaScript.
 
-##  Característiques i funcionalitats principals de la pàgina web
+## Formulari de contacte interactiu
+### Creació del fomulari de contacte
+En aquest cas, he creat un formulari de contacte per una "suscripció" a la web d'Albert Camus.
 
-### Tema:
-Aquesta página web és una web de la vida del filòsof *Albert Camus*.
+He creat una página extra anomenada "contacte". Dins aquesta página es poden destacar dos apartats:
+- suscripcions
+- comentaris
 
-### Estructura i navegació de les pàgines:
-La web compta amb resums de qui és (index.html), sa seva biografía (vida.html), el seu pensament (pensamiento.html) i les seves obres principals (obras.html).
+Dins el primer, está l'opció de que l'usuari fiqui dades com nom, llinatges, edat, etc per després en pitjar el botó de "Suscribirse" s'enviin les dades. En aquest cas no s'envien realment a cap lloc, perque no treballam desde la part del servidor.
 
-Des de totes les págines es pot accedir a totes les pagines mitjatçant el menu de navegació.
+### Adaptació a diferents tipus de resolució de pantalla
 
-Totes les págines tenen un *header*, dins el cual está el *nav*, després un *section* on hi ha informació diferent en cada pàgina i després un *footer*.
+He editat amb CSS les diferents parts de la página de "contacte" perque sigui responsive. Per aixó he utilitzat flexbox i també he utilitzat els media queries que tenía d'abans.
 
-- header
-    + nav
-- section
-- footer
+Cuan la pàgina té una resolució més gran, es veuen els dos apartas un devora l'altre i quan es més petita estàn en forma de columna.
 
-A sa página de "vida.html" he afegit un *article* dins el section perque trobaba més comode de donar-li estils d'aquesta manera.
-
-- header
-    + nav
-- section
-    + article
-- footer
-
-### Etiquetes:
-He tractat de no abusar de "classes" i de "ids" més de lo estrictament necessari.
-
-He començat posant estils a la primera página, he utilitzat es mateix header i footer per totes i després he anat afegint classes i ids segons ho trobaba necessari.
-
-No he trobat necessari fer servir pseudoelements, però si he fet servir vàries pseudoclasses i selectors semántics d'avegades combinats amb classes i ids. Com per exemple:
+### Validació de les dades
+Per validar les dades que fica l'usuari dins el formulari, ho he fet en part amb la validació d'HTML i en part amb JavaScript.
+Per exemple, he utilitzat:
+``` HTML
+<input type="tel" id="telefono" name="telefono" placeholder="xxx-xxx-xxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
 ```
-#contenido_p div:first-of-type {
-    flex-basis: 100%;
+Perque el número de telèfon només pugui estar en un format. Concretament amb números del 0 al 9 i de 3 en tres separats per un guió, o sigui: xxx-xxx-xxx. Apart d'aixó, he posat que alguns camps siguien "requerits".
+
+D'altra banda, he utilitzar JavaScript per assegurar-me per exemple que l'usuari és major d'edat. Per aixó he utilitzar la següent funció:
+``` js
+function validateForm() {
+    //verificar que el usuario sea mayor de edad
+    let edadInput = document.getElementById("edad");
+    let edad = parseInt(edadInput.value);
+    if (isNaN(edad) || edad < 18) {
+        alert("Tienes que ser mayor de edad para esto.");
+        edadInput.focus();
+        return false;
+    }
+
+    //confirmacion del envio
+    alert(`Gracias por suscribirte, ${nombre.value} :)`);
+    return true;
 }
 ```
-o
-```
-.pensamientos h5:first-child {
-    margin-right: 1rem;
-}
-```
-
-### Disseny adaptatiu:
-La pàgina web és *responsive*, he aconsseguit aixó principalment fent us de **flexbox** i de **media queries**.
-
-He fet 3 ***breakpoints***. 
-
-El primer és per **1100px**, després he fet un altre per pantalles més grans, amb un mínim de **1730px** i després he fet un altre pensant en dispositius més petits, amb un máxim de **570px**.
-
-Els *media queries* estan al final de l'arxiu d'estils.
-
-Ho he combinat amb flexbox perque ho trobava més práctic d'aquesta manera.
-
-### Multimédia:
-
-Totes ses imatges tenen un "alt" amb una petita i curta descripció.
-
-Totes ses imatges han estat optimitzades per que no pesin tant amb un compresor d'imatges ([aquest](https://compressor.io/)).
-
-Com la pàgina tenía que tenir un audio o un video, he utilitzat un audio d'aquesta [web](https://incompetech.com/music/royalty-free/music.html).
-
-### Comentaris:
-No he tobat necessari comentar el codi HTML perque consider que l'estructura és molt senzilla i autoexplicativa.
-
-Els comentaris a la página d'estils son una petita guia per sabre que estils son de cada pàgina.
-
-Primer he posat uns estils generals on, per exemple, he posat dins :root una serie de colors per poder tenir més a má la paleta de colors que s'esta utilitzant i de pas poder canviar-los més fàcilment en cas de que façi falta:
-```
-:root {
-    --color-1:#44194a;
-    --color-2: #ba5a9f;
-    --color-3: #e1ff00;
-    --color-4: #f0ff8d;
-}
-```
-I després he anant afegint estils de cada part comentant-ho:
-```
-/*estilos especiales pagina "vida" (selector article reservado para esta pagina)*/
-#vida {
-    width: 50rem;
-    margin: auto;
-    display: none;
-}
-```
-### Animacions:
-He utilitzat algunes animacions per fer la pàgina més dinàmica. Sobretot he fet servir "@keyframes" i també ":hover".
-
-![Animació header](/readme_medios/animacio_header.gif "Animació header")
-
-A la página de vida he intentat fer un *timeline* i una opció per veure més contingut que d'entrada apareix oculta però en pitjar "saber más" es pot veure.
-
-![timeline i saber mas](/readme_medios/timeline.gif "timeline i saber mas")
-
+### Imatge del formulari
+![formulari](/readme_medios/captura_04.png)
 
 ---
 
-## Validació W3C
-Totes les pàgines han estat aprobades per el [W3C](https://www.w3.org/).
+## Scripts
+### Càrrega dinàmica de contingut:
+### Notificacions emergents:
+He afegit algunes notificacions emergents per interactuar amb l'usuari. Per exemple, quan l'usuari envía el formulari, surt un alert que diu "Gracias por suscribirte, (nom de l'usuari)".
+![captura alert](/readme_medios/captura_01.png)
 
-Validació de l'HTML:
-![validacio w3c](/readme_medios/w3c_validado.png "validacio w3c")
+També surt una notificació cada vegada que es canvia d'estil la pàgina.
 
-Validació del CSS:
-![validacio w3c](/readme_medios/w3c_validado_2.png "validacio w3c")
+### Enquestes/Valoracions Interactives:
+Per recopilar la retroalimentació del usuaris he afegit una secció de comentaris. Els usuaris poden comentar a sa web i els seus comentaris s'afegeixen a la secció de comentaris.
 
-## Estructura de carpetes i arxius que conformen la pàgina web
-La pàgina web está estructurada de manera en la cual tenim un css anomenat "estilos.css" i 4 pàgines html. Hi ha un fitxer anomenat "medios" dins el qual hi ha algunes imatges, un audio i un altre fitxer anomenat "obras" on he possat imatges dels llibres de l'autor per tenir-les mes organitzades.
+Poden posar un nom però és opcional (si no ho posen, surt com "Anónimo").
 
-L'estructura sería:
-+ medios
-    - imatges de la web
-    - audio
-    - obras
-        - imatges concretament de les obres
-+ estilos.css
-+ index.html
-+ obras.html
-+ pensamiento.html
-+ vida.html
+Hi ha dos comentaris predeterminats però la resta s'afegeixen segons l'usuari vagi comentant. Si es torna a carregar la pàgina, els comentaris dels usuaris segueixen apareixent (estan al local.Storage).
 
-## Tecnologies utilitzades en el desenvolupament de la pàgina web.
-- El codi l'he fet amb [Visual Studio Code](https://code.visualstudio.com/).
-- La font l'he agafat de [Google Fonts](https://fonts.google.com/specimen/Nunito).
-- He utilitzat un box-shadow d'un [CodePen](https://codepen.io/airen/pen/eYGKEdz).
-- He generat els clip-path amb aquesta eina anomenada [Clippy](https://bennettfeely.com/clippy/).
-- He agafat  informació d'[aquí](https://www.biografiasyvidas.com/biografia/c/camus.htm) i d'[aquí](https://en.wikipedia.org/wiki/Albert_Camus).
-- He optimitzat les imatges amb aques [compressor](https://compressor.io/).
-- He utilitzar un audio d'[aquesta pàgina](https://incompetech.com/music/royalty-free/music.html)
+![comentarios](/readme_medios/captura_02.png)
 
+### Canvis d'estil:
+He afegit un botó a l'inici de cada página que ens permet cambiar els estils de tota la web.
 
-##  Captures de Pantalla:
-### Pàgina vida
-![captura de la web 1](/readme_medios/captura1.png "captura de la web 1")
+Concretament es canvia de tema 'oscuro' a tema 'claro' o viceversa.
 
-### Pàgina obres
-![captura de la web 2](/readme_medios/captura2.png "captura de la web 2")
+Aixó ho faig amb una funció de javascript que s'executa en pulsar el botó però també hi ha una que s'executa en carregar la pàgina. Tinc una funció per cada estil.
 
-### Página pensament
-![captura de la web 3](/readme_medios/captura3.png "captura de la web 3")
+Lo únic que fan les funcions d'estil es canviar coses genériques com per exemple els colors que he posat predeterminats (var --color-1) o el color del fons.
 
-### Pàgina inici 1
-![captura de la web 4](/readme_medios/captura4.png "captura de la web 4")
+Aquesta es una mostra del tema clar:
+![tema clar](/readme_medios/captura_03.png)
 
-### Pàgina inici 2
-![captura de la web 5](/readme_medios/captura5.png "captura de la web 5")
-
-### Pàgina inici mòvil
-![captura de la web 6](/readme_medios/captura6.png "captura de la web 6")
-
-### Pàgina vida mòvil
-![captura de la web 7](/readme_medios/captura7.png "captura de la web 7")
+### Imatges:

@@ -5,6 +5,11 @@
     --color-2: #ba5a9f;
     --color-3: #e1ff00;
     --color-4: #f0ff8d;
+    --color-5: #efbfe2;
+    --subcolor-1: rgba(240, 46, 170, 0.3);
+    --subcolor-2: rgba(240, 46, 170, 0.2);
+    --subcolor-3: rgba(240, 46, 170, 0.1);
+    --subcolor-4: rgba(240, 46, 170, 0.05);
 }
 
 * {
@@ -34,10 +39,10 @@ nav li a:hover {
 }
 @keyframes aaa { /*animacion del nav*/
     0% {
-        box-shadow: var(--color-3) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+        box-shadow: var(--color-3) 5px 5px, var(--subcolor-1) 10px 10px, var(--subcolor-2) 15px 15px, var(--subcolor-3) 20px 20px, var(--subcolor-4) 25px 25px;
     }
     100%{
-        box-shadow: var(--color-3) 0px 0px, rgba(240, 46, 170, 0.3) 5px 5px, rgba(240, 46, 170, 0.2) 10px 10px, rgba(240, 46, 170, 0.1) 15px 15px, rgba(240, 46, 170, 0.05) 20px 20px;
+        box-shadow: var(--color-3) 0px 0px, var(--subcolor-1) 5px 5px, var(--subcolor-2) 10px 10px, var(--subcolor-3) 15px 15px, var(--subcolor-4) 20px 20px;
 
     }
 }
@@ -48,7 +53,7 @@ nav li {
     list-style: none;
     text-align: center;
     background-color: var(--color-3);
-    box-shadow: var(--color-3) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    box-shadow: var(--color-3) 5px 5px, var(--subcolor-1) 10px 10px, var(--subcolor-2) 15px 15px, var(--subcolor-3) 20px 20px, var(--subcolor-4) 25px 25px;
 }
 
 nav ul {
@@ -205,7 +210,7 @@ section h3 {
     background-color: var(--color-1);
     padding: 3rem;
     margin: 2.5rem;
-    box-shadow: var(--color-3) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    box-shadow: var(--color-3) 5px 5px, var(--subcolor-1) 10px 10px, var(--subcolor-2) 15px 15px, var(--subcolor-3) 20px 20px, var(--subcolor-4) 25px 25px;
 }
 /*footer*/
 footer {
@@ -302,7 +307,7 @@ article span {
 }
 
 .boton:hover {
-        background-color: rgb(255, 151, 226);
+        background-color: var(--color-5);
         box-shadow: 4px 4px 0 var(--color-3);
         transition: 0.3s;
 }
@@ -354,7 +359,7 @@ h6 {
     height: auto;
     padding: 1rem;;
     background-color: var(--color-1);
-    box-shadow: var(--color-3) 0 5px, rgba(240, 46, 170, 0.3) 0 10px, rgba(240, 46, 170, 0.2) 0 15px, rgba(240, 46, 170, 0.1) 0 20px, rgba(240, 46, 170, 0.05) 0 25px;
+    box-shadow: var(--color-3) 0 5px, var(--subcolor-1) 0 10px, var(--subcolor-2) 0 15px, var(--subcolor-3) 0 20px, var(--subcolor-4) 0 25px;
     margin-bottom: 1rem;
 }
 
@@ -415,6 +420,100 @@ h6 {
 .obra img {
     width: 7rem;
 }
+
+/*-----estilos contacto------*/
+
+#formularios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: o 1rem;
+}
+#suscribirse, #caja_comentarios {
+    width: 100%;
+    max-width: 35rem;
+    margin: 0 auto;
+}
+fieldset {
+    width: 30rem;
+    margin: 1rem auto;
+    border: 1px solid var(--color-2);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 20rem;
+    box-shadow: var(--color-2) 0px 0px 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-2);
+    border-radius: 5px;
+    background-color:var(--color-5);
+}
+input:focus, textarea:focus{
+    outline: 3px solid var(--color-4);
+}
+textarea {
+    height: 2rem;
+}
+input[type="checkbox"] {
+    margin-right: 5px;
+    outline: none;
+}
+input[type="submit"], button {
+    background-color: var(--color-1);
+    color: var(--color-4);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+input[type="submit"]:hover {
+    background-color: var(--color-2);
+    font-weight: bold;
+}
+h4 {
+    font-size: 24px;
+    color: var(--color-2);
+    border-bottom: 1px dashed var(--color-4);
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.coment {
+    border: 1px solid var(--color-4);
+    background-color: var(--color-1);
+    padding: .5rem;
+    margin: 1.5rem;
+    position: relative;
+    border-radius: 8px 8px 8px 8px;
+}
+.coment:after {
+    content: "";
+    position: absolute;
+    border-top: 15px solid var(--color-2);
+    border-top-color: inherit;
+    border-left: 0px solid transparent;
+    border-right: 35px solid transparent;
+    top: 100%;
+    left: 25px;
+}
+
 
 /*-----media queries-----*/
 @media only screen and (max-width: 1100px) {
@@ -487,11 +586,9 @@ h6 {
     #contenido_p img {
         width: 80%;
     }
-
+    
 
 }
-
-
 
 @media only screen and (min-width: 1730px) {
     .resumen {
@@ -534,5 +631,9 @@ h6 {
     }
     .pensamientos {
        width: auto;
+    }
+    
+    fieldset {
+        max-width: 10rem;
     }
 }
