@@ -29,6 +29,7 @@ Perque el número de telèfon només pugui estar en un format. Concretament amb 
 
 D'altra banda, he utilitzar JavaScript per assegurar-me per exemple que l'usuari és major d'edat. Per aixó he utilitzar la següent funció:
 ``` js
+//----función para validar el formulario de contacto----
 function validateForm() {
     //verificar que el usuario sea mayor de edad
     let edadInput = document.getElementById("edad");
@@ -38,7 +39,12 @@ function validateForm() {
         edadInput.focus();
         return false;
     }
-
+    //validar email (aunque no se hasta que punto sea necesario porque el type del input ya es "email")
+    let email = document.getElementById("correo").value;
+    if (!/^(.+\@.+\..+)$/.test(email)) {
+        alert("Email inválido.");
+        return false;
+    }
     //confirmacion del envio
     alert(`Gracias por suscribirte, ${nombre.value} :)`);
     return true;
@@ -51,6 +57,20 @@ function validateForm() {
 
 ## Scripts
 ### Càrrega dinàmica de contingut:
+Per aixó, he canviat els botons de la pàgina de "vida.html" perque funcionin amb la següent funció:
+``` js
+// botones para hacer aparecer o desaparecer contenido (en la página de vida.html)
+function aparecer(){
+    var texto = document.getElementById("vida");
+    if (texto.style.display == "none"){
+        texto.style.display = "block";
+    }else {
+        texto.style.display = "none";
+    }
+}
+```
+També vaig pensar en canviar la part del contingut cronològic però m'estic quedant sense temps.
+
 ### Notificacions emergents:
 He afegit algunes notificacions emergents per interactuar amb l'usuari. Per exemple, quan l'usuari envía el formulari, surt un alert que diu "Gracias por suscribirte, (nom de l'usuari)".
 ![captura alert](/readme_medios/captura_01.png)
@@ -79,3 +99,4 @@ Aquesta es una mostra del tema clar:
 ![tema clar](/readme_medios/captura_03.png)
 
 ### Imatges:
+Per fer canvis a les imatges he elegit fer un slider a la pàgina d'obres.

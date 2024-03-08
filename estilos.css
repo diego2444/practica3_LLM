@@ -235,7 +235,7 @@ footer {
 
 #vida p {
     font-size: 20px;
-    margin: 3rem;
+    margin: 5rem;
 }
 
 #vida img {
@@ -288,7 +288,7 @@ article span {
     height: 1rem;
     width: 1rem;
     display: inline-block;
-    margin-top: -1.75rem;
+    margin-top: -1.65rem;
     margin-left: -0.5rem;
     position: absolute;
 }
@@ -389,6 +389,10 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+}
+.tipos:first-of-type {
+    width: 40%;
+    margin: 1rem auto;
 }
 .tipos h4 {
     flex-basis: 100%;
@@ -636,4 +640,36 @@ h4 {
     fieldset {
         max-width: 10rem;
     }
+}
+
+
+
+/*
+///////////////////////////
+---------pruebas-----------
+///////////////////////////
+*/
+.slider { 
+    position: relative;
+    width: 300px; 
+    margin: 20px auto;
+}
+.img img {
+    width: 100%;
+    height: 100%;
+}
+
+.texto-oculto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: none;
+}
+
+.next, .prev {
+    margin: 0;
+    height: 3rem;
 }

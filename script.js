@@ -1,4 +1,4 @@
-//función para validar el formulario de contacto
+//----función para validar el formulario de contacto----
 function validateForm() {
     //verificar que el usuario sea mayor de edad
     let edadInput = document.getElementById("edad");
@@ -8,7 +8,12 @@ function validateForm() {
         edadInput.focus();
         return false;
     }
-
+    //validar email (aunque no se hasta que punto sea necesario porque el type del input ya es "email")
+    let email = document.getElementById("correo").value;
+    if (!/^(.+\@.+\..+)$/.test(email)) {
+        alert("Email inválido.");
+        return false;
+    }
     //confirmacion del envio
     alert(`Gracias por suscribirte, ${nombre.value} :)`);
     return true;
@@ -116,4 +121,68 @@ function cargarTema() {
     }
 }
 window.onload = cargarTema;
+
+// botones para hacer aparecer o desaparecer contenido (en la página de vida.html)
+function aparecer(){
+    var texto = document.getElementById("vida");
+    if (texto.style.display == "none"){
+        texto.style.display = "block";
+    }else {
+        texto.style.display = "none";
+    }
+}
+
+/// ---- scripts para el carrouserl/slider de las obras ---------
+var slides = document.getElementsByClassName('slide');
+let indice = 0;
+
+function mostrarSlide(n) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slides[n].style.display = 'block';
+}
+
+function prevSlide() {
+    indice--;
+    if (indice < 0)
+        indice = slides.length - 1;
+    mostrarSlide(indice);
+}
+
+function nextSlide() {
+    indice++;
+    if (indice >= slides.length)
+        indice = 0;
+    mostrarSlide(indice);
+}
+
+mostrarSlide(indice);
+
+
+//---scripts de ver el texto oculto de las imagenes de las obras---
+var textos = document.getElementsByClassName("texto-oculto");
+var imagen = document.getElementsByClassName("img");
+
+//funcion que muestra el texto (se ejecuta on mouseover)
+function mostrarTexto(num) {
+    for (let i = 0; i < textos.length; i++) {
+        if (i === num) {
+            textos[i].style.opacity = "1";
+            textos[i].style.display = "block";
+            imagen[i].style.opacity = "0";
+        }
+    }
+}
+
+//funcion que oculta el texto (se ejecuta onmouseouts)
+function ocultarTexto(num) {
+    for (let i = 0; i < textos.length; i++) {
+        if (i === num) {
+            textos[i].style.opacity = "0";
+            textos[i].style.display = "none";
+            imagen[i].style.opacity = "1";
+        }
+    }
+}
 
