@@ -50,6 +50,7 @@ function validateForm() {
     return true;
 }
 ```
+
 ### Imatge del formulari
 ![formulari](/readme_medios/captura_04.png)
 
@@ -57,7 +58,7 @@ function validateForm() {
 
 ## Scripts
 ### Càrrega dinàmica de contingut:
-Per aixó, he canviat els botons de la pàgina de "vida.html" perque funcionin amb la següent funció:
+Per aixó, he canviat els botons de la pàgina de "[vida.html](vida.html)" perque funcionin amb la següent funció:
 ``` js
 // botones para hacer aparecer o desaparecer contenido (en la página de vida.html)
 function aparecer(){
@@ -69,20 +70,22 @@ function aparecer(){
     }
 }
 ```
-També vaig pensar en canviar la part del contingut cronològic però m'estic quedant sense temps.
+Si pulses el botó "saber más", es mostra més informació. Si hi tornes a pulsar o li dones a "ocular", s'amaga.
+A la part de la línea cronológica, si deixes el ratolí sobre l'any també es veu informació, però això no és amb JS.
 
 ### Notificacions emergents:
-He afegit algunes notificacions emergents per interactuar amb l'usuari. Per exemple, quan l'usuari envía el formulari, surt un alert que diu "Gracias por suscribirte, (nom de l'usuari)".
+He afegit algunes notificacions emergents per interactuar amb l'usuari. Per exemple, quan l'usuari envía el formulari, surt un `alert` que diu "Gracias por suscribirte, (nom de l'usuari)".
+
 ![captura alert](/readme_medios/captura_01.png)
 
-També surt una notificació cada vegada que es canvia d'estil la pàgina.
+També surt una notificació cada vegada que es canvia d'estil la pàgina, de fet, quan es canvia d'estil la página (o quan es carrega l'estil en general), apareix un missatge al `console.log`, però això no ho vera l'usuari.
 
 ### Enquestes/Valoracions Interactives:
 Per recopilar la retroalimentació del usuaris he afegit una secció de comentaris. Els usuaris poden comentar a sa web i els seus comentaris s'afegeixen a la secció de comentaris.
 
 Poden posar un nom però és opcional (si no ho posen, surt com "Anónimo").
 
-Hi ha dos comentaris predeterminats però la resta s'afegeixen segons l'usuari vagi comentant. Si es torna a carregar la pàgina, els comentaris dels usuaris segueixen apareixent (estan al local.Storage).
+Hi ha dos comentaris predeterminats, però la resta s'afegeixen segons l'usuari vagi comentant. Si es torna a carregar la pàgina, els comentaris dels usuaris segueixen apareguent (estan al local.Storage).
 
 ![comentarios](/readme_medios/captura_02.png)
 
@@ -99,4 +102,11 @@ Aquesta es una mostra del tema clar:
 ![tema clar](/readme_medios/captura_03.png)
 
 ### Imatges:
-Per fer canvis a les imatges he elegit fer un slider a la pàgina d'obres.
+Per fer canvis a les imatges he elegit fer un slider a la pàgina d'obres. En fer click a les fletxes et mostra imatges de cada obra.
+Aixó ho he fet amb 3 funcions que están al JS, concretament la de `mostrarSlide()`, la de `prevSlide()` i la de `nextSlide()`.
+
+![slider](/readme_medios/captura_05.gif)
+
+Apart d'aixó, en deixar el ratolí damunt cada imatge, t'ensenya més informació sobre cada obra. He fet aixó utilitzant `onmouseover` i `onmouseout` apart de funcions de JS que están a l'[escript](script.js).
+
+![mes info](/readme_medios/captura_06.gif)

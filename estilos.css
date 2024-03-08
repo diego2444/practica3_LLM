@@ -392,7 +392,9 @@ h6 {
 }
 .tipos:first-of-type {
     width: 40%;
+    min-width: 30rem;
     margin: 1rem auto;
+    flex-wrap: nowrap;
 }
 .tipos h4 {
     flex-basis: 100%;
@@ -640,13 +642,16 @@ h4 {
     fieldset {
         max-width: 10rem;
     }
+    .tipos:first-of-type {
+        width: 40%;
+        min-width: 30rem;
+    }
 }
-
 
 
 /*
 ///////////////////////////
----------pruebas-----------
+---------más cosas-----------
 ///////////////////////////
 */
 .slider { 
